@@ -2,9 +2,90 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Budget Planner</title>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
 </head>
 <body>
+    <ion-app>
+        <ion-header>
+            <ion-toolbar color="success">
+                <ion-title>Budget Planner</ion-title>
+            </ion-toolbar>
 
+        </ion-header>
+        <ion-content>
+
+            <ion-grid>
+                <ion-row>
+                    <ion-col size-md="6" offset-md="6">
+                        <!-- Making a Header/title from my items expense reason and expense amount-->
+                        <ion-card-header>
+                            <ion-card-title>Expenses</ion-card-title>
+                        </ion-card-header>
+
+                        <!-- input with labels-->
+                        <ion-card>
+                            <ion-card-content>
+                                <ion-item>
+                                    <ion-label position="floating">Expense Reason</ion-label>
+                                    <ion-input type="text" id="input-reason"></ion-input>
+                                </ion-item>
+
+                                <!-- creating a label for a user input i.e number -->
+                                <ion-item>
+                                    <ion-label position="floating">Expense Amount</ion-label>
+                                    <ion-input type="number" id="input-amount"></ion-input>
+                                </ion-item>
+
+
+                                <!-- BUTTONS -->
+                                <!-- creating a button CLEAR, with some colors-->
+                                <div margin-vertical text-right>
+                                <ion-button fill="outline" color="danger" id="btn-cancel">
+                                    <ion-icon slot="start" name="close"></ion-icon>
+                                    CLEAR
+                                </ion-button>
+
+                                <!-- Creating a button ADD EXPENSE, with icon +.-->
+                                <ion-button id="btn-confirm">
+                                    <ion-icon slot="start" name="add"></ion-icon>
+                                    ADD EXPENSE
+                                </ion-button>
+                                </div>
+
+                            </ion-card-content>
+                        </ion-card>
+
+                    </ion-col>
+                </ion-row>
+
+                <!-- here we rendering something known as ion list-->
+                <!-- it structure elements beneath each other-->
+                <ion-row>
+                    <ion-col size-md="6" offset-md="6">
+                    <ion-list id="expense-list"></ion-list>
+                    </ion-col>
+                </ion-row>
+
+                <!-- Adding total expenses-->
+                <ion-row>
+                    <ion-col size-md="6" offset-md="6">
+                        <p>Total Expenses: <span id="total-expenses"></span></p>
+                    </ion-col>
+                </ion-row>
+
+            </ion-grid>
+
+        </ion-content>
+
+        <io-alert-controller></io-alert-controller>
+
+    </ion-app>
+
+<Script src="app.js"></Script>
 </body>
 </html>
